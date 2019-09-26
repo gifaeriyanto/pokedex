@@ -1,0 +1,18 @@
+{
+  "env": {
+    "production": {
+      "plugins": [
+        "transform-remove-console"
+      ]
+    }
+  },
+  "presets": [
+    "next/babel",
+    ["@emotion/babel-preset-css-prop",
+      {
+        "autoLabel": false,
+        "sourceMap": true
+      }
+    ]
+  ]
+}
