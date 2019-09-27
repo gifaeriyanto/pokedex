@@ -1,9 +1,7 @@
 import React from 'react';
+import Pokemons from 'Containers/pokemons';
+import withData from 'Hocs/apollo';
 
-const Index = () => (
-  <>
-    Welcome to Pokedex
-  </>
-);
+const Index = () => <Pokemons />;
 
-export default Index;
+export default withData(Index);

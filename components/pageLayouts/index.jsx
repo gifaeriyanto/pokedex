@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Container } from 'Elements';
+import './reset.css';
 import './style.css';
 
 const Layout = ({ children, ...props }) => (
