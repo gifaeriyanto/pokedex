@@ -4,7 +4,7 @@ const compression = require('compression');
 const routes = require('./config/routes');
 
 const dev = process.env.NODE_ENV !== 'production';
-const PORT = process.env.NODE_ENV === 'production' ? 9999 : 3000;
+const PORT = process.env.NODE_ENV === 'production' ? 9090 : 3000;
 
 const app = next({ dir: '.', dev });
 const handler = routes.getRequestHandler(app);
