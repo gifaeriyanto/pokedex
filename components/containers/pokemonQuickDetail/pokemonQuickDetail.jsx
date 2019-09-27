@@ -41,7 +41,7 @@ const PokemonQuickDetail = ({
               <div>{ `${pokemonDetail.weight.minimum} - ${pokemonDetail.weight.maximum}` }</div>
             </div>
 
-            <Link route="home">
+            <Link route="detail" params={{ name: pokemonDetail.name }}>
               <a>See full details</a>
             </Link>
           </div>

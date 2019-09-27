@@ -18,3 +18,8 @@ html, body {
 	outline: none !important;
 	box-sizing: border-box;
 }
+
+a {
+	text-decoration: none;
+	color: inherit;
+}

@@ -1,14 +1,22 @@
 import styled from '@emotion/styled';
 
-export const Title = styled.h1({
+export const Logo = styled.h1({
   fontSize: 30,
   fontFamily: 'Poppins',
   marginBottom: 50,
+  a: {
+    textDecoration: 'none',
+    color: '#202124',
+    span: {
+      color: '#FC6B6D',
+    },
+  },
 });
 
 export const Wrapper = styled.div({
   maxWidth: 600,
-  margin: '50px auto',
+  padding: '50px 20px',
+  margin: 'auto',
 });
 
 export const Search = styled.div({

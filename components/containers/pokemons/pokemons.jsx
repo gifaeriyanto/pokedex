@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useQuery } from '@apollo/react-hooks';
 import { gql } from 'apollo-boost';
 import PokemonQuickDetail from 'Containers/pokemonQuickDetail';
-import { Item, Loading } from './styled';
+import { Item, Loading, BadgeTypes } from './styled';
 
 const GET_POKEMONS = gql`
   query pokemons($first: Int!) {
@@ -33,7 +33,7 @@ const Pokemons = () => {
   const [showDetail, setShowDetail] = useState(false);
 
   const {
-    loading, error, data,
+    loading, data,
   } = useQuery(GET_POKEMONS, {
     variables: { first },
     notifyOnNetworkStatusChange: true,
@@ -77,7 +77,7 @@ const Pokemons = () => {
         <div className="types">
           {
             item.types.map((type, index) => (
-              <div key={index}>{ type }</div>
+              <BadgeTypes key={index} type={type}>{ type }</BadgeTypes>
             ))
           }
         </div>
@@ -87,7 +87,6 @@ const Pokemons = () => {
 
   return (
     <>
-      { error && 'error...' }
       { items }
       { loading && <Loading>Loading...</Loading> }
       {

@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import { PokemonTypeColor, MediaQuery } from 'Utils';
 
 export const Item = styled.div({
   position: 'relative',
@@ -38,20 +39,31 @@ export const Item = styled.div({
       top: 0,
       fontWeight: 'bold',
       opacity: 0.3,
+      [MediaQuery.sm]: {
+        display: 'none',
+      },
     },
     '.types': {
       marginTop: 10,
-      div: {
-        display: 'inline-block',
-        fontSize: 12,
-        backgroundColor: '#f5f5f5',
-        marginRight: 5,
-        padding: '4px 12px',
-        borderRadius: 10,
-      },
     },
   },
 });
+
+export const BadgeTypes = styled.div(
+  ({ type }) => {
+    const theme = PokemonTypeColor(type);
+
+    return ({
+      display: 'inline-block',
+      backgroundColor: theme,
+      color: '#fff',
+      marginRight: 5,
+      padding: '4px 12px',
+      borderRadius: 10,
+      fontSize: 12,
+    });
+  },
+);
 
 export const Loading = styled.div({
   marginTop: 50,

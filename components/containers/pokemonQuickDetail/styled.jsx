@@ -1,5 +1,6 @@
 import { keyframes } from '@emotion/core';
 import styled from '@emotion/styled';
+import { PokemonTypeColor, MediaQuery } from 'Utils';
 
 const zIndexValue = 9999;
 const animationDuration = '.5s';
@@ -32,6 +33,32 @@ const hiddenEffect = keyframes`
   }
 `;
 
+const showEffectMobile = keyframes`
+  0% {
+    margin-top: 200px;
+    height: 0px;
+    padding: 0 20px;
+  }
+
+  100% {
+    margin-top: 0;
+    height: 560px;
+  }
+`;
+
+const hiddenEffectMobile = keyframes`
+  0% {
+    margin-top: 0;
+    height: 560px;
+  }
+
+  100% {
+    margin-top: 200px;
+    padding: 0 20px;
+    height: 0;
+  }
+`;
+
 export const Modal = styled.div(
   ({ show }) => ({
     width: '100%',
@@ -51,40 +78,24 @@ export const Modal = styled.div(
 
 export const Dialog = styled.div(
   ({ show, pokemonType }) => {
-    let theme = '#cf4981';
-    switch (pokemonType) {
-      case 'Grass':
-        theme = '#49CFB0';
-        break;
-
-      case 'Fire':
-        theme = '#FC6B6D';
-        break;
-
-      case 'Water':
-        theme = '#75BEFE';
-        break;
-
-      case 'Electric':
-        theme = '#FFD76F';
-        break;
-
-      default:
-        break;
-    }
+    const theme = PokemonTypeColor(pokemonType);
 
     return ({
       position: 'relative',
       backgroundColor: theme,
       padding: 40,
-      width: '100%',
       height: 450,
-      maxWidth: 550,
+      width: 550,
+      maxWidth: 'calc(100% - 40px)',
       borderRadius: 20,
       animation: `${show ? showEffect : hiddenEffect} ${animationDuration} ease`,
       zIndex: zIndexValue + 1,
       overflow: 'hidden',
       transition: `background-color ${transitionDuration}`,
+      [MediaQuery.sm]: {
+        height: 560,
+        animation: `${show ? showEffectMobile : hiddenEffectMobile} ${animationDuration} ease`,
+      },
       a: {
         display: 'block',
         position: 'absolute',
@@ -95,8 +106,15 @@ export const Dialog = styled.div(
         border: `1px solid ${theme}`,
         borderRadius: 30,
         transition: `all ${transitionDuration}`,
+        backgroundColor: '#fff',
         '&:hover': {
           boxShadow: `0 0 0 1px ${theme}`,
+        },
+        [MediaQuery.sm]: {
+          left: 20,
+          right: 20,
+          textAlign: 'center',
+          borderRadius: 10,
         },
       },
     });
@@ -147,6 +165,7 @@ export const Pokemon = styled.div(
         marginTop: 10,
         div: {
           display: 'inline-block',
+          marginBottom: 5,
           fontSize: 12,
           backgroundColor: 'rgba(0, 0, 0, .2)',
           marginRight: 5,
@@ -164,6 +183,9 @@ export const Pokemon = styled.div(
       padding: 20,
       borderRadius: 16,
       height: 290,
+      [MediaQuery.sm]: {
+        height: 420,
+      },
       '& > div': {
         display: 'flex',
         borderBottom: '1px solid #eee',
@@ -182,6 +204,14 @@ export const Pokemon = styled.div(
         right: 20,
         maxWidth: 200,
         maxHeight: 200,
+        [MediaQuery.sm]: {
+          position: 'initial',
+          display: 'block',
+          margin: 'auto',
+          marginBottom: 20,
+          maxWidth: 'auto',
+          maxHeight: 150,
+        },
       },
     },
   }),
