@@ -1,6 +1,6 @@
-/* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 import App from 'next/app';
+import Layout from 'Components/pageLayouts';
 
 export default class MyApp extends App {
   static async getInitialProps({ Component, ctx }) {
@@ -16,6 +16,10 @@ export default class MyApp extends App {
   render() {
     const { Component, pageProps } = this.props;
 
-    return <Component {...pageProps} />;
+    return (
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
+    );
   }
 }
