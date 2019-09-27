@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useQuery } from '@apollo/react-hooks';
 import { gql } from 'apollo-boost';
 import PokemonQuickDetail from 'Containers/pokemonQuickDetail';
+import { Item, Loading } from './styled';
 
 const GET_POKEMONS = gql`
   query pokemons($first: Int!) {
@@ -66,19 +67,29 @@ const Pokemons = () => {
   };
 
   const items = pokemonList.map((item) => (
-    <div key={item.id} onClick={() => handleDetail(item)}>
-      { item.number }
-      { item.name }
-      <img src={item.image} alt={item.name} width="100px" />
-    </div>
+    <Item key={item.id} onClick={() => handleDetail(item)}>
+      <div className="img">
+        <img src={item.image} alt={item.name} />
+      </div>
+      <div className="about">
+        <div className="name">{ item.name }</div>
+        <div className="number">{ `#${item.number}` }</div>
+        <div className="types">
+          {
+            item.types.map((type, index) => (
+              <div key={index}>{ type }</div>
+            ))
+          }
+        </div>
+      </div>
+    </Item>
   ));
 
   return (
     <>
-      <div>Welcome to Pokedex</div>
       { error && 'error...' }
       { items }
-      { loading && 'loading...' }
+      { loading && <Loading>Loading...</Loading> }
       {
         pokemonDetail && (
           <PokemonQuickDetail

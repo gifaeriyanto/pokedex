@@ -1,6 +1,6 @@
 import React from 'react';
 import App from 'next/app';
-import Layout from 'Components/pageLayouts';
+import Layout from 'Layout';
 
 export default class MyApp extends App {
   static async getInitialProps({ Component, ctx }) {

@@ -16,4 +16,5 @@ html, body {
 
 * {
 	outline: none !important;
+	box-sizing: border-box;
 }

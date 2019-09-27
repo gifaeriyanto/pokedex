@@ -15,14 +15,14 @@ const showEffect = keyframes`
 
   100% {
     margin-top: 0;
-    height: 400px;
+    height: 450px;
   }
 `;
 
 const hiddenEffect = keyframes`
   0% {
     margin-top: 0;
-    height: 400px;
+    height: 450px;
   }
 
   100% {
@@ -78,8 +78,8 @@ export const Dialog = styled.div(
       backgroundColor: theme,
       padding: 40,
       width: '100%',
-      height: 400,
-      maxWidth: 450,
+      height: 450,
+      maxWidth: 550,
       borderRadius: 20,
       animation: `${show ? showEffect : hiddenEffect} ${animationDuration} ease`,
       zIndex: zIndexValue + 1,
