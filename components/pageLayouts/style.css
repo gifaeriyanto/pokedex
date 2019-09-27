@@ -1,0 +1,19 @@
+@import url('https://rsms.me/inter/inter.css');
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+@import url('https://fonts.googleapis.com/css?family=Poppins:700&display=swap');
+
+@supports (font-variation-settings: normal) {
+	html {
+		font-family: 'Inter var', sans-serif;
+	}
+}
+
+html, body {
+	font-family: 'Inter', sans-serif;
+	color: #202124;
+	font-size: 14px;
+}
+
+* {
+	outline: none !important;
+}

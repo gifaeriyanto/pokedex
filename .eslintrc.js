@@ -26,6 +26,9 @@ module.exports = {
     'linebreak-style': [0, 'error', 'windows'],
     'import/prefer-default-export': [0, 'error'],
     'jsx-a11y/anchor-is-valid': [0, 'error'],
+    'react/jsx-props-no-spreading': [0, 'error'],
+    'jsx-a11y/no-static-element-interactions': [0, 'error'],
+    'jsx-a11y/click-events-have-key-events': [0, 'error'],
   },
   settings: {
     'import/resolver': {
