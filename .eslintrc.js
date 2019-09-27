@@ -29,6 +29,8 @@ module.exports = {
     'react/jsx-props-no-spreading': [0, 'error'],
     'jsx-a11y/no-static-element-interactions': [0, 'error'],
     'jsx-a11y/click-events-have-key-events': [0, 'error'],
+    'react/no-array-index-key': [0, 'error'],
+    'max-len': [0, 'error'],
   },
   settings: {
     'import/resolver': {
